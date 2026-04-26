@@ -14,8 +14,12 @@ export default function Home() {
         <div className="container header-container" suppressHydrationWarning>
           <div className="logo-group">
             <div className="logo-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2l9 4.9V17l-9 5-9-5V6.9z" />
+                <path d="M12 22V12" />
+                <path d="M21 7l-9 5" />
+                <path d="M3 7l9 5" />
+                <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.3" />
               </svg>
             </div>
             <div className="logo-text">
@@ -61,6 +65,7 @@ export default function Home() {
                 alt="Macro laboratory shot of blue peptide vial and HPLC chart" 
                 fill 
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 style={{ objectFit: 'cover' }}
               />
             </div>
