@@ -13,8 +13,12 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Bridge Page - Advanced Research Insights',
+  title: 'GHK-Cu Analysis: Research Review & Molecular Protocols',
   description: 'A Review of Tripeptide-Copper Complexes in Cellular Models',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
