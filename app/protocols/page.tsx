@@ -16,8 +16,35 @@ export default function Protocols() {
   const mcgPerUnit = totalMcg / (ml * unitsPerMl);
   const unitsNeeded = targetMcg / mcgPerUnit;
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate peptide concentration for research?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Peptide concentration is calculated by dividing the total milligrams (mg) of the lyophilized powder by the volume of diluent (ml) added. For example, 5mg in 2ml results in a concentration of 2.5mg/ml or 25mcg per unit in a standard 100-unit volumetric tool."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the standard diluent for research peptides?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most common diluent for research peptides is Bacteriostatic Water (0.9% benzyl alcohol), which prevents microbial growth and maintains stability for in-vitro laboratory models."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="pt-32 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="container mx-auto px-6 mb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

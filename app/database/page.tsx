@@ -184,7 +184,31 @@ export default function Database() {
           )}
         </AnimatePresence>
 
-        <div className="mt-12 p-8 border border-dashed border-border text-center">
+        <div className="mt-32 pt-24 border-t border-border/30">
+          <h2 className="text-accent text-[11px] uppercase tracking-[0.4em] mb-12 text-center">Technical Research Glossary</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+              <h3 className="text-primary text-lg font-display mb-4">HPLC Purity Analysis</h3>
+              <p className="text-muted text-sm font-light leading-relaxed">
+                High-Performance Liquid Chromatography is the gold standard for verifying the chemical purity of a peptide. A single, distinct peak in the chromatogram indicates a sequence free from synthesis drift and residual impurities.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-primary text-lg font-display mb-4">Mass Spectrometry (MS)</h3>
+              <p className="text-muted text-sm font-light leading-relaxed">
+                Analytical technique used to determine the precise molecular weight of a compound. In peptide research, MS is critical for confirming that the synthesized amino acid sequence matches the target molecular blueprint.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-primary text-lg font-display mb-4">Lyophilization (Freeze-Drying)</h3>
+              <p className="text-muted text-sm font-light leading-relaxed">
+                The process of removing water from a synthesized peptide under high vacuum and extreme cold. This creates a stable "cake" or powder that preserves the kinetic properties of the peptide for long-term storage.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-24 p-8 border border-dashed border-border text-center">
           <p className="text-muted text-xs uppercase tracking-[0.2em] mb-8">
             Database updated daily. All sequences are batch-tested via HPLC/MS prior to inclusion.
           </p>
