@@ -33,14 +33,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://99puritypeptides.com'),
+  metadataBase: new URL('https://99purityresearch.vercel.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: '99 Purity Research | Premium Peptide Verification',
     description: 'Elevating In-Vitro Research through Verifiable Peptide Synthesis. 100% HPLC & Mass Spec Verified sequences.',
-    url: 'https://99puritypeptides.com',
+    url: 'https://99purityresearch.vercel.app',
     siteName: '99 Purity Research',
     images: [
       {
@@ -82,8 +82,8 @@ export default function RootLayout({
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: '99 Purity Research',
-      url: 'https://99puritypeptides.com',
-      logo: 'https://99puritypeptides.com/logo.png',
+      url: 'https://99purityresearch.vercel.app',
+      logo: 'https://99purityresearch.vercel.app/logo.png',
       description: 'The global standard for analytical grade peptide synthesis.',
       sameAs: [
         'https://twitter.com/99purityresearch',
@@ -94,12 +94,12 @@ export default function RootLayout({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: '99 Purity Research',
-      url: 'https://99puritypeptides.com',
+      url: 'https://99purityresearch.vercel.app',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://99puritypeptides.com/database?q={search_term_string}'
+          urlTemplate: 'https://99purityresearch.vercel.app/database?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
