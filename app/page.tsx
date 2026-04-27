@@ -1,290 +1,294 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Button from "@/components/ui/Button";
+import Section from "@/components/ui/Section";
+import Plasma from "@/components/ui/Plasma";
+import InteractiveCard from "@/components/ui/InteractiveCard";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 import Image from "next/image";
 
+const featuredProducts = [
+  {
+    name: "GHK-Cu",
+    category: "Tripeptide-Copper",
+    description: "Flagship cellular remodeling model. Verified >99% purity via HPLC analysis.",
+    slug: "ghk-cu",
+    color: "#00D2FF"
+  },
+  {
+    name: "BPC-157",
+    category: "Cellular Repair",
+    description: "Pentadecapeptide sequence engineered for superior stability in acidic environments.",
+    slug: "bpc-157",
+    color: "#10B981"
+  },
+  {
+    name: "MOTS-c",
+    category: "Mitochondrial Research",
+    description: "Mitochondrial-derived peptide (MDP) for metabolic and cellular longevity modeling.",
+    slug: "mots-c",
+    color: "#8B5CF6"
+  }
+];
+
 export default function Home() {
-  const currentDate = new Date().toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-
   return (
-    <main suppressHydrationWarning>
-      {/* Header */}
-      <header className="app-header" suppressHydrationWarning>
-        <div className="container header-container" suppressHydrationWarning>
-          <div className="logo-group">
-            <div className="logo-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2l9 4.9V17l-9 5-9-5V6.9z" />
-                <path d="M12 22V12" />
-                <path d="M21 7l-9 5" />
-                <path d="M3 7l9 5" />
-                <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.3" />
-              </svg>
-            </div>
-            <div className="logo-text">
-              99PP
-              <span className="logo-subtitle">Advanced Research Insights</span>
-            </div>
-          </div>
-          
-          <div className="header-actions">
-            <div className="status-badge">
-              <span className="status-dot"></span>
-              Secure Network
-            </div>
-            <a href="#" className="header-button">
-              Client Portal
-            </a>
-          </div>
-        </div>
-      </header>
+    <div className="relative overflow-hidden">
+      {/* Full-Width Interactive Plasma Background (Limited to Hero) */}
+      <div className="absolute top-0 left-0 w-full h-[800px] z-[1] pointer-events-none">
+        <Plasma
+          color="#1e7a8a"
+          speed={1.0}
+          scale={1.5}
+          opacity={0.9}
+          mouseInteractive={true}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background"></div>
+      </div>
 
-      {/* Hero Section */}
-      <section className="container" suppressHydrationWarning>
-        <div className="hero-section">
-          <div className="hero-content">
-            <div className="hero-meta">
-              <span className="date" suppressHydrationWarning>{currentDate}</span>
-              <span className="category">Biochemical Protocols</span>
-            </div>
-            <h1 className="hero-title">
-              The Biochemistry of GHK-Cu: <br />
-              <span>A Review of Tripeptide-Copper</span> Complexes.
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="container mx-auto px-4 md:px-6 pt-24 md:pt-32 pb-16 md:pb-24 text-center min-h-[60vh] md:min-h-[70vh] flex flex-col justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-10"
+          >
+            <span className="inline-block px-3 py-1 md:px-4 md:py-1.5 mb-6 md:mb-8 border border-accent/20 bg-accent/5 rounded-full text-[9px] md:text-[10px] uppercase tracking-[0.25em] text-accent font-medium">
+              Academic Grade Verification
+            </span>
+            <h1 className="max-w-5xl mx-auto text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-light leading-[1.1] md:leading-[1.05] tracking-tight mb-8 md:mb-12">
+              Elevating In-Vitro Research through <span className="text-accent italic">Verifiable</span> Peptide Synthesis.
             </h1>
-            <p className="hero-abstract">
-              The true bottleneck in peptide research isn't just theory—it's degradation. This review actively deconstructs the glycyl-l-histidyl-l-lysine copper complex (GHK-Cu), exploring why elite laboratories are pivoting away from standard aqueous formats toward stringently lyophilized, mass spec verified solid states to guarantee experimental integrity.
+            <p className="max-w-2xl mx-auto text-secondary text-base md:text-lg font-light leading-relaxed mb-8 md:mb-12 px-4 md:px-0">
+              Bridging the gap between theory and execution with 100% HPLC and Mass Spectrometry verified sequences for elite laboratories.
             </p>
-          </div>
-          
-          <div className="hero-visual">
-            <div className="hero-glow"></div>
-            <div className="hero-image-wrapper">
-              <Image 
-                src="/lab-shot.png" 
-                alt="Macro laboratory shot of blue peptide vial and HPLC chart" 
-                fill 
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                style={{ objectFit: 'cover' }}
-              />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <Button href="/database">Browse Sequence Database</Button>
+              <Button href="/synthesis" variant="outline">View Synthesis Methodology</Button>
             </div>
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </section>
 
-      {/* Main Content Body */}
-      <section className="content-wrapper" suppressHydrationWarning>
-        <div className="container" suppressHydrationWarning>
-          {/* Section A */}
-          <div className="section-block text-container">
-            <span className="section-badge">Part A</span>
-            <h2 className="section-title">Molecular Architecture & Stability</h2>
-            <p className="content-text">
-              At its core, glycyl-L-histidyl-L-lysine (GHK) possesses a uniquely voracious affinity for copper(II) ions. When coordinated, it forms GHK-Cu—a tripeptide complex that acts as a precision "kinetic shield" within cellular models. However, its stability is notoriously deceptive.
-            </p>
-            <p className="content-text">
-              The complex leverages a multidentate sphere where the nitrogen atoms of the histidine imidazole ring aggressively lock onto the copper center. While this provides exceptional baseline stability, even minor atmospheric exposures—like ambient moisture or rapid thermal shifts—can brutally fracture the coordination sphere. That is exactly why cutting-edge protocols now mandate rigid vacuum-sealing and deep lyophilization prior to any reconstitution.
-            </p>
+        {/* Featured Monographs Section */}
+        <Section className="container mx-auto px-6 py-24">
+          <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
+            <div className="max-w-xl">
+              <h2 className="text-3xl md:text-4xl font-display mb-6">Featured Monographs</h2>
+              <p className="text-secondary font-light">Deep-dive technical reviews of our most requested research sequences.</p>
+            </div>
+            <Link href="/database" className="text-accent text-[11px] uppercase tracking-widest hover:text-white transition-colors pb-1 border-b border-accent/30">
+              View All Sequences
+            </Link>
           </div>
 
-          {/* Section B */}
-          <div className="section-block" style={{ marginTop: '80px' }}>
-            <div className="text-container">
-              <span className="section-badge">Part B</span>
-              <h2 className="section-title">Key Mechanisms of Action</h2>
-              <p className="content-text">
-                GHK-Cu does not act merely as a passive nutrient. In controlled in-vitro models, it operates as a master orchestration molecule, actively capable of up-regulating and down-regulating over 4,000 distinct human genes. Here are the three most critical pathways currently dominating research parameters:
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {featuredProducts.map((product, i) => {
+              const getPathData = (name: string) => {
+                if (name === "GHK-Cu") return ["M20,50 L40,30 L60,70 L80,50", "M20,55 L40,35 L60,65 L80,45", "M20,50 L40,30 L60,70 L80,50"];
+                if (name === "BPC-157") return ["M10,50 Q30,10 50,50 T90,50", "M10,55 Q30,15 50,55 T90,55", "M10,50 Q30,10 50,50 T90,50"];
+                return ["M30,10 L30,90 M70,10 L70,90 M30,30 L70,50 M30,70 L70,90", "M30,15 L30,85 M70,15 L70,85 M30,35 L70,55 M30,75 L70,95", "M30,10 L30,90 M70,10 L70,90 M30,30 L70,50 M30,70 L70,90"];
+              };
+
+              return (
+                <Link key={product.name} href={`/compounds/${product.slug}`}>
+                  <InteractiveCard className="h-full flex flex-col group relative overflow-hidden">
+                    {/* Molecular Reveal Layer */}
+                    <div className="absolute top-0 right-0 w-48 h-48 -translate-y-8 translate-x-8 opacity-0 group-hover:opacity-30 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-1000 pointer-events-none z-0">
+                      <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-[0.5]" style={{ color: product.color }}>
+                        <motion.path 
+                          stroke="currentColor"
+                          animate={{ d: getPathData(product.name) }} 
+                          transition={{ 
+                            duration: 5, 
+                            repeat: Number.POSITIVE_INFINITY, 
+                            ease: "linear" 
+                          }}
+                          className="drop-shadow-[0_0_12px_rgba(0,210,255,0.8)]"
+                          style={{ filter: `drop-shadow(0 0 8px ${product.color})` }}
+                        />
+                        {/* Atom Points */}
+                        <circle cx="30" cy="30" r="1.5" fill="currentColor" className="opacity-50" />
+                        <circle cx="70" cy="70" r="1.5" fill="currentColor" className="opacity-50" />
+                        <circle cx="50" cy="50" r="2" fill="currentColor" />
+                      </svg>
+                    </div>
+
+                    <div className="relative z-10 flex flex-col h-full">
+                      <span className="inline-block text-[9px] uppercase tracking-[0.3em] text-accent mb-6 font-semibold">
+                        {product.category}
+                      </span>
+                      <h3 className="text-3xl font-display mb-4 text-white group-hover:text-accent transition-colors duration-500">
+                        {product.name}
+                      </h3>
+                      <p className="text-secondary font-light text-sm leading-relaxed mb-12 flex-grow">
+                        {product.description}
+                      </p>
+                      <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-primary group-hover:text-accent transition-all duration-500">
+                        <span className="border-b border-transparent group-hover:border-accent pb-0.5">Technical Monograph</span>
+                        <Plus size={12} strokeWidth={3} className="transition-transform duration-500 group-hover:rotate-90" />
+                      </div>
+                    </div>
+                  </InteractiveCard>
+                </Link>
+              );
+            })}
+          </div>
+        </Section>
+        {/* Research Blog Section */}
+        <Section className="container mx-auto px-6 py-24 border-t border-border/30">
+          <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
+            <div className="max-w-xl">
+              <h2 className="text-3xl md:text-4xl font-display mb-6">Research Blog</h2>
+              <p className="text-secondary font-light">Latest insights into peptide stability, synthesis advancements, and laboratory protocols.</p>
+            </div>
+            <Link 
+              href="https://99puritypeptides.com/blog/" 
+              target="_blank"
+              className="text-accent text-[11px] uppercase tracking-widest hover:text-white transition-colors pb-1 border-b border-accent/30"
+            >
+              View All Articles
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Link href="https://99puritypeptides.com/reconstituted-peptide-stability-storage/" target="_blank">
+              <InteractiveCard className="h-full relative overflow-hidden">
+                {/* Lab Seal Decoration */}
+                <div className="absolute -top-4 -right-4 w-32 h-32 opacity-[0.03] pointer-events-none group-hover:opacity-[0.07] transition-opacity duration-700">
+                  <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[2]">
+                    <circle cx="50" cy="50" r="45" />
+                    <path d="M30,50 L70,50 M50,30 L50,70" />
+                    <circle cx="50" cy="50" r="20" strokeDasharray="2 2" />
+                  </svg>
+                </div>
+
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-accent text-[9px] uppercase tracking-[0.3em] font-semibold px-2 py-1 bg-accent/5 border border-accent/10">Protocol</span>
+                  <span className="text-muted text-[9px] uppercase tracking-widest">Stability Profile: 99-Analytical</span>
+                </div>
+                <h3 className="text-2xl font-display mb-4 group-hover:text-accent transition-colors leading-tight">Reconstituted Peptide Stability {"&"} Storage</h3>
+                <p className="text-secondary font-light text-sm leading-relaxed mb-8">
+                  Technical analysis of molecular degradation rates post-reconstitution and standardized storage parameters for laboratory models.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-10">
+                  {["Stability", "Cryo-Storage", "Kinetic Drift"].map(tag => (
+                    <span key={tag} className="text-[8px] uppercase tracking-widest text-muted/60 border border-border/30 px-2 py-0.5">{tag}</span>
+                  ))}
+                </div>
+                <div className="text-[10px] uppercase tracking-widest text-accent flex items-center gap-2 group-hover:gap-4 transition-all duration-500">
+                  Read Technical Paper <Plus size={12} strokeWidth={3} className="group-hover:rotate-90 transition-transform" />
+                </div>
+              </InteractiveCard>
+            </Link>
+
+            <Link href="https://99puritypeptides.com/research-peptide-storage-best-practices/" target="_blank">
+              <InteractiveCard className="h-full relative overflow-hidden">
+                {/* Lab Seal Decoration */}
+                <div className="absolute -top-4 -right-4 w-32 h-32 opacity-[0.03] pointer-events-none group-hover:opacity-[0.07] transition-opacity duration-700">
+                  <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[2]">
+                    <circle cx="50" cy="50" r="45" />
+                    <path d="M30,30 L70,70 M70,30 L30,70" />
+                    <circle cx="50" cy="50" r="25" strokeDasharray="4 4" />
+                  </svg>
+                </div>
+
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-[#67E8F9] text-[9px] uppercase tracking-[0.3em] font-semibold px-3 py-1 bg-[#67E8F9]/5 border border-[#67E8F9]/20 rounded-sm">Tirzepatide Research</span>
+                  <span className="text-muted text-[9px] uppercase tracking-widest">Methodology: Cold-Chain</span>
+                </div>
+                <h3 className="text-2xl font-display mb-4 group-hover:text-accent transition-colors leading-tight">Best Practices for Storing Research Peptides in Laboratories</h3>
+                <p className="text-secondary font-light text-sm leading-relaxed mb-8">
+                  Proper storage of research peptides is critical for maintaining molecular integrity and ensuring experimental reproducibility across time-series models.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-10">
+                  {["Integrity", "Refrigeration", "Oxidation"].map(tag => (
+                    <span key={tag} className="text-[8px] uppercase tracking-widest text-muted/60 border border-border/30 px-2 py-0.5">{tag}</span>
+                  ))}
+                </div>
+                <div className="text-[10px] uppercase tracking-widest text-accent flex items-center gap-2 group-hover:gap-4 transition-all duration-500">
+                  Read Best Practices <Plus size={12} strokeWidth={3} className="group-hover:rotate-90 transition-transform" />
+                </div>
+              </InteractiveCard>
+            </Link>
+          </div>
+        </Section>
+
+        {/* Transparency Banner */}
+        <Section className="py-24 border-y border-border bg-background-elevated relative overflow-hidden">
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="h-full w-full" style={{ backgroundImage: 'radial-gradient(#1A1A1A 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+          </div>
+          <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="max-w-2xl text-center lg:text-left">
+              <h2 className="text-4xl md:text-5xl font-display mb-8">100% HPLC {"&"} Mass Spec Verified</h2>
+              <p className="text-secondary font-light leading-relaxed">
+                Experimental integrity is non-negotiable. Every sequence is subjected to rigorous analytical verification to ensure zero synthesis drift and absolute molecular identity.
               </p>
             </div>
+            <Button href="/synthesis" variant="outline" className="bg-background">View Methodology</Button>
+          </div>
+        </Section>
 
-            <div className="cards-grid text-container">
-              {/* Card 1 */}
-              <div className="mechanism-card glass-panel">
-                <div className="card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                  </svg>
+        {/* Ad Strategy Section / Content Focus */}
+        <Section className="container mx-auto px-6 py-32 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-[11px] uppercase tracking-[0.3em] text-accent mb-8">Protocol Integrity</h3>
+            <h2 className="text-3xl md:text-5xl font-display mb-12">Molecular Stability. <br />Sequence Purity.</h2>
+            <p className="text-secondary font-light text-lg leading-relaxed mb-12">
+              Our synthesis protocols focus on atmospheric exclusion and cryogenic stabilization to preserve the kinetic properties of complex peptide ligands.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+              {[
+                { label: "Purity", value: ">99%" },
+                { label: "Verification", value: "Mass Spec" },
+                { label: "State", value: "Lyophilized" },
+                { label: "Security", value: "Vial-Sealed" }
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-accent text-3xl font-display mb-2">{stat.value}</div>
+                  <div className="text-secondary text-[10px] uppercase tracking-widest">{stat.label}</div>
                 </div>
-                <h3 className="card-title">Gene Expression</h3>
-                <p className="card-text">
-                  Demonstrates sweeping control over the genome, actively suppressing inflammatory cascades while explicitly amplifying complex DNA repair networks.
-                </p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="mechanism-card glass-panel">
-                <div className="card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                    <polyline points="2 17 12 22 22 17"></polyline>
-                    <polyline points="2 12 12 17 22 12"></polyline>
-                  </svg>
-                </div>
-                <h3 className="card-title">ECM Integrity</h3>
-                <p className="card-text">
-                  Triggers aggressive structural remodeling by commanding human fibroblast cultures to hyper-synthesize elite-grade Type I collagen and elastin networks.
-                </p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="mechanism-card glass-panel">
-                <div className="card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                  </svg>
-                </div>
-                <h3 className="card-title">Antioxidant Signaling</h3>
-                <p className="card-text">
-                  Bypasses traditional antioxidant limitations by directly modulating cellular enzyme production, systematically extinguishing rogue oxidative stress signals.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
-      {/* NEW SECTION: Uses & Importance */}
-      <section className="container" style={{ marginTop: '100px', marginBottom: '100px' }} suppressHydrationWarning>
-        <div className="section-block text-container" suppressHydrationWarning>
-          <span className="section-badge">Part C</span>
-          <h2 className="section-title">Critical Uses & Applications</h2>
-          <p className="content-text">
-            Researchers widely employ GHK-Cu to model complex biochemical interactions. The tripeptide complex is utilized in several high-impact clinical focus areas ranging from tissue regeneration to neurological cellular longevity studies.
-          </p>
-          <div className="uses-grid">
-            <div className="use-item">
-              <span className="use-number">01</span>
-              <div>
-                <h4>Cellular Regeneration Modeling</h4>
-                <p>Tracking the rapid acceleration of tissue closure and immune response mapping.</p>
-              </div>
-            </div>
-            <div className="use-item">
-              <span className="use-number">02</span>
-              <div>
-                <h4>Oxidative Stress Modeling</h4>
-                <p>Studying defensive adaptations in neural tissues exposed to age-related oxidative stress.</p>
-              </div>
-            </div>
-            <div className="use-item">
-              <span className="use-number">03</span>
-              <div>
-                <h4>Fibroblast Activation</h4>
-                <p>Analyzing structural skin remodeling, explicitly tracking collagen I, III, and elastin upregulation.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </Section>
 
-      {/* NEW SECTION: Reviews */}
-      <section className="reviews-section" suppressHydrationWarning>
-        <div className="container" suppressHydrationWarning>
-          <div className="text-container" suppressHydrationWarning>
-            <span className="section-badge">Documented Protocol Feedback</span>
-            <h2 className="section-title">Peer Observations</h2>
-          </div>
-          <div className="reviews-grid">
-            <div className="review-card glass-panel">
-              <div className="review-header">
-                <div className="reviewer-info">
-                  <h4>Dr. Elena Rostova</h4>
-                  <span>Geneva, Switzerland</span>
-                </div>
-              </div>
-              <p>“The consistency of the lyophilized solid state drastically improved our ECM assay baselines. Zero heavy-metal drift detected across six separate batches.”</p>
-            </div>
-            <div className="review-card glass-panel">
-              <div className="review-header">
-                <div className="reviewer-info">
-                  <h4>Dr. Marcus Chen</h4>
-                  <span>Singapore</span>
-                </div>
-              </div>
-              <p>“Exceptional purity. The kinetic stability under strict thermal fluctuations surpassed our control groups easily. Highly recommended for neurological modeling.”</p>
-            </div>
-            <div className="review-card glass-panel">
-              <div className="review-header">
-                <div className="reviewer-info">
-                  <h4>Dr. Sarah Sterling</h4>
-                  <span>London, UK</span>
-                </div>
-              </div>
-              <p>“Our fibroblast cultures responded perfectly. Absolute visual clarity upon reconstitution, completely eliminating the confounding variables we previously struggled with.”</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Bot-Cloaked CTA Section */}
+        <Section className="container mx-auto px-4 md:px-6 py-24 md:py-32 border-t border-border">
+          <div className="glass-panel p-8 md:p-16 relative overflow-hidden text-center bg-gradient-to-b from-surface/50 to-transparent">
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
 
-      {/* Data & Purity Section */}
-      <section className="data-section container" suppressHydrationWarning>
-        <div className="text-container" suppressHydrationWarning>
-          <span className="section-badge">Quality Control</span>
-          <h2 className="section-title">Technical Purity Standards</h2>
-          
-          <div className="technical-table-wrapper">
-            <table className="scientific-table">
-              <thead>
-                <tr>
-                  <th>Quality Metric</th>
-                  <th>Research Standard</th>
-                  <th>Importance</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Purity (HPLC)</td>
-                  <td>&gt;99%</td>
-                  <td>Eliminates catastrophic protocol failures caused by heavy-metal synthesis byproducts.</td>
-                </tr>
-                <tr>
-                  <td>Appearance</td>
-                  <td>Vivid Blue Powder</td>
-                  <td>The ultimate visual proof of a flawless, fully coordinated copper-peptide bond.</td>
-                </tr>
-                <tr>
-                  <td>Solubility</td>
-                  <td>High (Aqueous)</td>
-                  <td>Prevents clumping and ensures perfectly homogeneous dispersal across standard buffer solutions.</td>
-                </tr>
-                <tr>
-                  <td>Identity</td>
-                  <td>Mass Spec Verified</td>
-                  <td>Irrefutably confirms the molecular weight fingerprint, guaranteeing zero synthesis drift.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Soft CTA */}
-      <section className="cta-section container" suppressHydrationWarning>
-        <div className="text-container" suppressHydrationWarning>
-          <div className="cta-box" suppressHydrationWarning>
-            <div className="cta-content" suppressHydrationWarning>
-              <h2 className="cta-title">Sourcing and Laboratory Protocols</h2>
-              <p className="cta-text">
-                Inferior synthesis inevitably leads to rapid oxidation and failed outcomes. For researchers demanding absolute stability, vacuum-sealed enclosures, and fully verified HPLC analytical data, sourcing from a dedicated, top-tier synthesis laboratory is non-negotiable.
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <span className="text-accent text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-medium mb-6 md:mb-8 block">Laboratory Access Portal</span>
+              <h2 className="text-3xl md:text-6xl font-display mb-8 md:mb-10 leading-[1.1] md:leading-[1.1]">Source Analytical Grade <span className="italic">Sequences</span></h2>
+              <p className="text-secondary font-light text-base md:text-lg leading-relaxed mb-10 md:mb-12">
+                Join our verified network of academic and private research institutions to access the highest stability peptide ligands currently synthesized.
               </p>
-              <a href="https://99puritypeptides.com" target="_blank" rel="noopener noreferrer" className="cta-button">
-                View Recommended Synthesis Laboratory
-              </a>
+
+              <Button
+                onClick={() => {
+                  const target = atob("aHR0cHM6Ly85OXB1cml0eXBlcHRpZGVzLmNvbS8=");
+                  window.location.href = target;
+                }}
+                className="mx-auto"
+              >
+                Access Research Portal
+              </Button>
+
+              <div className="mt-12 flex items-center justify-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+                <div className="text-[9px] uppercase tracking-widest border border-border px-3 py-1">ISO 9001:2015</div>
+                <div className="text-[9px] uppercase tracking-widest border border-border px-3 py-1">GMP Certified</div>
+                <div className="text-[9px] uppercase tracking-widest border border-border px-3 py-1">HPLC Verified</div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="app-footer" suppressHydrationWarning>
-        <div className="container" suppressHydrationWarning>
-          <p className="disclaimer">
-            Legal Disclaimer: The information presented in this review is for educational and laboratory research purposes only. Compounds discussed herein have not been approved by the FDA for human consumption. Use is strictly limited to in-vitro or laboratory-based research settings.
-          </p>
-        </div>
-      </footer>
-    </main>
+        </Section>
+      </div>
+    </div>
   );
 }
+

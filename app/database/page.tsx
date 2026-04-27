@@ -1,0 +1,213 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Section from "@/components/ui/Section";
+import Link from "next/link";
+import { Search, ExternalLink } from "lucide-react";
+import Button from "@/components/ui/Button";
+import { useRouter } from "next/navigation";
+
+const products = [
+  { name: "GHK-Cu", formula: "C14H22CuN6O4", weight: "401.91 g/mol", cas: "89030-95-5", slug: "ghk-cu", category: "Tripeptide" },
+  { name: "BPC-157", formula: "C62H98N16O22", weight: "1419.5 g/mol", cas: "137525-51-0", slug: "bpc-157", category: "Pentadecapeptide" },
+  { name: "TB-500", formula: "C212H350N56O78S", weight: "4963.5 g/mol", cas: "77591-33-4", slug: "tb-500", category: "Regenerative" },
+  { name: "MOTS-c", formula: "C78H138N26O24S2", weight: "1876.2 g/mol", cas: "1627580-64-6", slug: "mots-c", category: "Mitochondrial" },
+  { name: "SS-31", formula: "C32H49N9O5", weight: "639.8 g/mol", cas: "736992-21-5", slug: "ss-31", category: "Metabolic" },
+  { name: "Epithalon", formula: "C14H22N4O9", weight: "390.35 g/mol", cas: "307197-13-9", slug: "epithalon", category: "Longevity" },
+  { name: "KPV", formula: "C16H28N4O4", weight: "340.42 g/mol", cas: "67727-97-3", slug: "kpv", category: "Anti-Inflammatory" },
+  { name: "LL-37", formula: "C205H340N60O53", weight: "4493.3 g/mol", cas: "154948-66-8", slug: "ll-37", category: "Antimicrobial" },
+  { name: "VIP", formula: "C147H238N44O42S", weight: "3325.8 g/mol", cas: "40077-57-4", slug: "vip", category: "Neuropeptide" },
+  { name: "Thymosin Alpha-1", formula: "C129H215N33O55", weight: "3108.3 g/mol", cas: "62304-98-7", slug: "thymosin-alpha-1", category: "Immune" },
+  { name: "Vilon", formula: "C10H17N3O5", weight: "259.26 g/mol", cas: "132174-70-2", slug: "vilon", category: "Bioregulator" },
+  { name: "Vesugen", formula: "C14H24N4O8", weight: "376.36 g/mol", cas: "852899-01-9", slug: "vesugen", category: "Vascular" },
+  { name: "Pinealon", formula: "C15H26N4O7", weight: "374.39 g/mol", cas: "852899-03-1", slug: "pinealon", category: "Neuro" },
+  { name: "Cortagen", formula: "C14H23N3O9", weight: "377.35 g/mol", cas: "852899-05-3", slug: "cortagen", category: "Bio" },
+];
+
+export default function Database() {
+  const router = useRouter();
+  const [selectedSlugs, setSelectedSlugs] = useState<string[]>([]);
+  const [isComparing, setIsComparing] = useState(false);
+
+  const toggleSelection = (e: React.MouseEvent, slug: string) => {
+    e.stopPropagation();
+    setSelectedSlugs(prev => 
+      prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]
+    );
+  };
+
+  const selectedProducts = products.filter(p => selectedSlugs.includes(p.slug));
+
+  return (
+    <div className="pt-32 pb-24">
+      <section className="container mx-auto px-6 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="flex justify-between items-end mb-8">
+            <div>
+              <h1 className="text-5xl font-display font-light mb-4">Sequence Database</h1>
+              <p className="text-secondary font-light max-w-2xl">
+                A comprehensive clinical repository of verified research sequences. 
+              </p>
+            </div>
+            {selectedSlugs.length > 1 && (
+              <Button onClick={() => setIsComparing(true)}>
+                Compare {selectedSlugs.length} Sequences
+              </Button>
+            )}
+          </div>
+
+          <div className="relative max-w-md">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted" size={18} />
+            <input 
+              type="text" 
+              placeholder="Search sequence identifier..." 
+              className="w-full bg-surface border border-border rounded-sm py-3 pl-12 pr-4 text-sm font-light text-primary focus:outline-none focus:border-accent transition-colors"
+            />
+          </div>
+        </motion.div>
+      </section>
+
+      <Section className="container mx-auto px-6">
+        <div className="glass-panel overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="clinical-table">
+              <thead>
+                <tr>
+                  <th className="w-12"></th>
+                  <th>Sequence Name</th>
+                  <th>Molecular Formula</th>
+                  <th>Molecular Weight</th>
+                  <th>CAS Number</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                {products.map((p, i) => (
+                  <motion.tr 
+                    key={p.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    onClick={() => router.push(`/compounds/${p.slug}`)}
+                    className={`cursor-pointer group transition-colors ${selectedSlugs.includes(p.slug) ? 'bg-accent/10' : 'hover:bg-white/5'}`}
+                  >
+                    <td className="text-center">
+                      <div 
+                        onClick={(e) => toggleSelection(e, p.slug)}
+                        className={`w-4 h-4 border transition-colors flex items-center justify-center ${selectedSlugs.includes(p.slug) ? 'bg-accent border-accent' : 'border-border group-hover:border-accent/50'}`}
+                      >
+                        {selectedSlugs.includes(p.slug) && <div className="w-1.5 h-1.5 bg-black rounded-full" />}
+                      </div>
+                    </td>
+                    <td className="!text-primary font-medium">{p.name}</td>
+                    <td>{p.formula}</td>
+                    <td>{p.weight}</td>
+                    <td>{p.cas}</td>
+                    <td>
+                      <span className="text-[9px] uppercase tracking-widest text-muted border border-border/30 px-2 py-0.5">
+                        {p.category}
+                      </span>
+                    </td>
+                  </motion.tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <AnimatePresence>
+          {isComparing && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-xl p-6 md:p-24 overflow-y-auto"
+            >
+              <div className="container mx-auto">
+                <div className="flex justify-between items-center mb-16">
+                  <h2 className="text-4xl font-display font-light">Sequence Comparison Matrix</h2>
+                  <button 
+                    onClick={() => setIsComparing(false)}
+                    className="p-4 border border-border hover:border-accent transition-colors text-muted hover:text-accent uppercase text-[10px] tracking-widest"
+                  >
+                    Close Matrix
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {selectedProducts.map((p) => (
+                    <motion.div 
+                      key={p.slug}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="glass-panel p-8 bg-surface/50 border-accent/20"
+                    >
+                      <div className="mb-8 border-b border-border pb-8">
+                        <span className="text-accent text-[9px] uppercase tracking-widest block mb-4">{p.category}</span>
+                        <h3 className="text-3xl font-display mb-2">{p.name}</h3>
+                        <p className="text-muted text-[10px] uppercase tracking-widest">REF: 99PP-{p.slug.toUpperCase()}</p>
+                      </div>
+
+                      <div className="space-y-8">
+                        <div>
+                          <label className="text-[9px] uppercase tracking-widest text-muted block mb-2">Molecular Formula</label>
+                          <div className="text-primary font-mono text-sm">{p.formula}</div>
+                        </div>
+                        <div>
+                          <label className="text-[9px] uppercase tracking-widest text-muted block mb-2">Molecular Weight</label>
+                          <div className="text-primary text-sm">{p.weight}</div>
+                        </div>
+                        <div>
+                          <label className="text-[9px] uppercase tracking-widest text-muted block mb-2">CAS Identifier</label>
+                          <div className="text-primary text-sm">{p.cas}</div>
+                        </div>
+                        <div className="pt-8">
+                          <Button 
+                            onClick={() => router.push(`/compounds/${p.slug}`)}
+                            variant="outline"
+                            className="w-full justify-center"
+                          >
+                            Full Technical Monograph
+                          </Button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className="mt-12 p-8 border border-dashed border-border text-center">
+          <p className="text-muted text-xs uppercase tracking-[0.2em] mb-8">
+            Database updated daily. All sequences are batch-tested via HPLC/MS prior to inclusion.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Button 
+              onClick={() => {
+                const target = atob("aHR0cHM6Ly85OXB1cml0eXBlcHRpZGVzLmNvbS8=");
+                window.location.href = target;
+              }}
+            >
+              Request Batch Verification Data
+            </Button>
+            <a 
+              href="/99Purity - COA.pdf" 
+              target="_blank"
+              className="flex items-center gap-2 px-8 py-3.5 border border-border text-primary text-[11px] uppercase tracking-widest hover:bg-surface transition-colors"
+            >
+              Download Latest COA
+            </a>
+          </div>
+        </div>
+      </Section>
+    </div>
+  );
+}
+
