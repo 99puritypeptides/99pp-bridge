@@ -194,7 +194,7 @@ export default function HomeClient() {
                 </div>
 
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="text-[#67E8F9] text-[9px] uppercase tracking-[0.3em] font-semibold px-3 py-1 bg-[#67E8F9]/5 border border-[#67E8F9]/20 rounded-sm">Tirzepatide Research</span>
+                  <span className="text-[#67E8F9] text-[9px] uppercase tracking-[0.3em] font-semibold px-3 py-1 bg-[#67E8F9]/5 border border-[#67E8F9]/20 rounded-sm">Cold-Chain Logistics</span>
                   <span className="text-muted text-[9px] uppercase tracking-widest">Methodology: Cold-Chain</span>
                 </div>
                 <h3 className="text-2xl font-display mb-4 group-hover:text-accent transition-colors leading-tight">Best Practices for Storing Research Peptides in Laboratories</h3>
