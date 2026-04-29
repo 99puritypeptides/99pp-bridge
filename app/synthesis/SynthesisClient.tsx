@@ -16,9 +16,9 @@ export default function SynthesisClient() {
           className="text-center"
         >
           <span className="text-accent text-[10px] uppercase tracking-[0.3em] font-medium mb-8 block">Analytical Verification</span>
-          <h1 className="text-5xl md:text-7xl font-display font-light mb-8 max-w-4xl mx-auto">Synthesis {"&"} <span className="italic">Analytical</span> Integrity</h1>
+          <h1 className="text-5xl md:text-7xl font-display font-light mb-8 max-w-4xl mx-auto">Peptides Research <span className="italic">Synthesis</span></h1>
           <p className="text-secondary font-light max-w-2xl mx-auto text-lg leading-relaxed">
-            Eliminating the "Theory Gap" in research through rigid batch-testing and mass spectrometry fingerprinting.
+            Eliminating the "Theory Gap" in research peptides through rigid batch-testing and 99 purity mass spectrometry fingerprinting.
           </p>
         </motion.div>
       </section>

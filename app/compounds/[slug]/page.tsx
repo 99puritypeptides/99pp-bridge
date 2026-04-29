@@ -275,14 +275,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const data = compoundData[slug] || compoundData["ghk-cu"];
   return {
-    title: `${data.name} Research Monograph | HPLC Verified Purity`,
-    description: `Technical analysis of ${data.name} (${data.fullTitle}). Sequence architecture, mechanisms of action, and purity standards for laboratory research.`,
-    keywords: [data.name, 'peptide research', 'molecular architecture', 'HPLC verified', data.cas],
+    title: `${data.name} Peptides Research Monograph | HPLC Verified Purity`,
+    description: `Technical peptides research on ${data.name} (${data.fullTitle}). Verified 99 purity research standards for laboratory research peptides in USA.`,
+    keywords: [data.name, 'peptides research', 'research peptides', '99 purity research', 'research peptides in USA', 'HPLC verified', data.cas],
     openGraph: {
       title: `${data.name} | 99 Purity Research Monograph`,
       description: data.description,
       type: 'article',
-      url: `https://99puritypeptides.com/compounds/${slug}`,
+      url: `https://99purityresearch.vercel.app/compounds/${slug}`,
     }
   }
 }
@@ -323,19 +323,19 @@ export default async function CompoundPage({ params }: { params: Promise<{ slug:
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://99puritypeptides.com',
+        item: 'https://99purityresearch.vercel.app',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Database',
-        item: 'https://99puritypeptides.com/database',
+        item: 'https://99purityresearch.vercel.app/database',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: data.name,
-        item: `https://99puritypeptides.com/compounds/${slug}`,
+        item: `https://99purityresearch.vercel.app/compounds/${slug}`,
       },
     ],
   };

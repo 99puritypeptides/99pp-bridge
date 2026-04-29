@@ -17,8 +17,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-secondary text-sm font-light leading-relaxed max-w-sm">
-              Setting the gold standard in laboratory peptide verification. 
-              Purity confirmed through HPLC and Mass Spectrometry analysis.
+              99 Purity Research sets the gold standard in peptides research and laboratory verification. 
+              Purity confirmed through HPLC and Mass Spectrometry for research peptides in USA.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8">

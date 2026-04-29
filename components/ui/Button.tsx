@@ -11,9 +11,10 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   variant?: "primary" | "outline";
+  target?: string;
 }
 
-export default function Button({ children, href, onClick, className = "", variant = "primary" }: ButtonProps) {
+export default function Button({ children, href, onClick, className = "", variant = "primary", target }: ButtonProps) {
   const content = (
     <motion.button
       whileTap={{ y: 1 }}
@@ -41,7 +42,7 @@ export default function Button({ children, href, onClick, className = "", varian
   );
 
   if (href) {
-    return <Link href={href} className="inline-block">{content}</Link>;
+    return <Link href={href} target={target} className="inline-block">{content}</Link>;
   }
 
   return content;

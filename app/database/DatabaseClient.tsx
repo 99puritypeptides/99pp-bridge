@@ -49,9 +49,9 @@ export default function DatabaseClient() {
         >
           <div className="flex justify-between items-end mb-8">
             <div>
-              <h1 className="text-5xl font-display font-light mb-4">Sequence Database</h1>
+              <h1 className="text-5xl font-display font-light mb-4">Peptides Research Database</h1>
               <p className="text-secondary font-light max-w-2xl">
-                A comprehensive clinical repository of verified research sequences. 
+                A comprehensive clinical repository of 99 purity research peptides in USA. Verified sequences for laboratory accuracy.
               </p>
             </div>
             {selectedSlugs.length > 1 && (

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://99puritypeptides.com/sitemap.xml',
+    sitemap: 'https://99purityresearch.vercel.app/sitemap.xml',
   }
 }

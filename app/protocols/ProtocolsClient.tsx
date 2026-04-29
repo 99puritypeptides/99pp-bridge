@@ -55,9 +55,9 @@ export default function ProtocolsClient() {
           <div className="inline-block px-4 py-2 border border-accent/20 bg-accent/5 mb-8">
             <span className="text-accent text-[10px] uppercase tracking-[0.3em] font-bold">Strictly for In-Vitro Research Use Only</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-display font-light mb-8 max-w-4xl mx-auto">Volumetric <span className="italic">Matrix</span></h1>
+          <h1 className="text-5xl md:text-7xl font-display font-light mb-8 max-w-4xl mx-auto">Peptides Research <span className="italic">Protocols</span></h1>
           <p className="text-secondary font-light max-w-2xl mx-auto text-lg leading-relaxed">
-            Analytical calibration tool for standardizing volumetric units in laboratory research models.
+            Analytical calibration tool for standardizing volumetric units for research peptides in USA.
           </p>
         </motion.div>
       </section>

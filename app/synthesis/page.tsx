@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import SynthesisClient from "./SynthesisClient";
 
 export const metadata: Metadata = {
-  title: "Synthesis Methodology | HPLC & Mass Spec Standards",
-  description: "Rigid laboratory standards for peptide synthesis. Discover our HPLC and Mass Spectrometry verification protocols ensuring >99% sequence purity.",
-  keywords: ["peptide synthesis", "HPLC purity", "mass spectrometry", "lyophilization", "peptide stability", "analytical integrity"],
+  title: "Peptides Research Synthesis | HPLC & Mass Spec Laboratory Standards",
+  description: "Discover our rigid laboratory standards for peptides research synthesis. 99 purity research protocols featuring HPLC and Mass Spectrometry verification in USA.",
+  keywords: ["peptides research synthesis", "research peptides USA", "99 purity research", "HPLC purity", "mass spectrometry", "peptide stability"],
 };
 
 export default function SynthesisPage() {

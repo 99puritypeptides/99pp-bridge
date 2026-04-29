@@ -60,14 +60,14 @@ export default function HomeClient() {
               Academic Grade Verification
             </span>
             <h1 className="max-w-5xl mx-auto text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-light leading-[1.1] md:leading-[1.05] tracking-tight mb-8 md:mb-12">
-              Elevating In-Vitro Research through <span className="text-accent italic">Verifiable</span> Peptide Synthesis.
+              The Gold Standard for <span className="text-accent italic">99 Purity</span> Peptides Research.
             </h1>
             <p className="max-w-2xl mx-auto text-secondary text-base md:text-lg font-light leading-relaxed mb-8 md:mb-12 px-4 md:px-0">
-              Bridging the gap between theory and execution with 100% HPLC and Mass Spectrometry verified sequences for elite laboratories.
+              99 Purity Research bridges the gap between theory and execution with 100% HPLC and Mass Spectrometry verified sequences for elite research peptides in USA.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Button href="/database">Browse Sequence Database</Button>
-              <Button href="/synthesis" variant="outline">View Synthesis Methodology</Button>
+              <Button href="https://99puritypeptides.com/blog/" target="_blank" variant="outline">Browse Research Papers</Button>
             </div>
           </motion.div>
         </section>
@@ -76,8 +76,8 @@ export default function HomeClient() {
         <Section className="container mx-auto px-6 py-24">
           <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
             <div className="max-w-xl">
-              <h2 className="text-3xl md:text-4xl font-display mb-6">Featured Monographs</h2>
-              <p className="text-secondary font-light">Deep-dive technical reviews of our most requested research sequences.</p>
+              <h2 className="text-3xl md:text-4xl font-display mb-6">Peptides Research Monographs</h2>
+              <p className="text-secondary font-light">Deep-dive technical reviews of our most requested 99 purity research sequences.</p>
             </div>
             <Link href="/database" className="text-accent text-[11px] uppercase tracking-widest hover:text-white transition-colors pb-1 border-b border-accent/30">
               View All Sequences
@@ -141,8 +141,8 @@ export default function HomeClient() {
         <Section className="container mx-auto px-6 py-24 border-t border-border/30">
           <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
             <div className="max-w-xl">
-              <h2 className="text-3xl md:text-4xl font-display mb-6">Research Blog</h2>
-              <p className="text-secondary font-light">Latest insights into peptide stability, synthesis advancements, and laboratory protocols.</p>
+              <h2 className="text-3xl md:text-4xl font-display mb-6">Research Peptides Blog</h2>
+              <p className="text-secondary font-light">Latest insights into peptides research, synthesis advancements, and laboratory protocols.</p>
             </div>
             <Link 
               href="https://99puritypeptides.com/blog/" 
@@ -261,9 +261,9 @@ export default function HomeClient() {
 
             <div className="relative z-10 max-w-2xl mx-auto">
               <span className="text-accent text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-medium mb-6 md:mb-8 block">Laboratory Access Portal</span>
-              <h2 className="text-3xl md:text-6xl font-display mb-8 md:mb-10 leading-[1.1] md:leading-[1.1]">Source Analytical Grade <span className="italic">Sequences</span></h2>
+              <h2 className="text-3xl md:text-6xl font-display mb-8 md:mb-10 leading-[1.1] md:leading-[1.1]">The Premier Source for Research Peptides in <span className="italic">USA</span></h2>
               <p className="text-secondary font-light text-base md:text-lg leading-relaxed mb-10 md:mb-12">
-                Join our verified network of academic and private research institutions to access the highest stability peptide ligands currently synthesized.
+                Join our verified network of 99 purity research institutions to access the highest stability peptide ligands currently synthesized in the laboratory.
               </p>
 
               <Button

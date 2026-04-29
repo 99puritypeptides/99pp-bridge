@@ -20,14 +20,17 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: '99 Purity Research | Analytical Grade Peptide Synthesis',
+    default: '99 Purity Research | #1 Source for Peptides Research & Synthesis',
     template: '%s | 99 Purity Research'
   },
-  description: 'The global standard for analytical grade peptide synthesis. 100% HPLC and Mass Spectrometry verified sequences for academic and private research institutions.',
-  keywords: ['peptide synthesis', 'analytical grade peptides', 'research chemicals', 'HPLC verification', 'mass spectrometry', 'peptide sequences', 'laboratory research'],
+  description: '99 Purity Research is the global leader in analytical grade peptide synthesis. We provide 100% HPLC and Mass Spectrometry verified research peptides in USA for academic and private institutions.',
+  keywords: ['99 purity research', 'peptides research', 'research peptides', 'research peptides in USA', 'peptide synthesis', 'analytical grade peptides', 'HPLC verification', 'mass spectrometry'],
   authors: [{ name: '99 Purity Research' }],
   creator: '99 Purity Research',
   publisher: '99 Purity Research',
+  icons: {
+    icon: '/favicon.ico',
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -38,8 +41,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: '99 Purity Research | Premium Peptide Verification',
-    description: 'Elevating In-Vitro Research through Verifiable Peptide Synthesis. 100% HPLC & Mass Spec Verified sequences.',
+    title: '99 Purity Research | Premium Peptides Research & Verification',
+    description: 'Elevating In-Vitro Peptides Research through Verifiable Synthesis. 100% HPLC & Mass Spec Verified research peptides in USA.',
     url: 'https://99purityresearch.vercel.app',
     siteName: '99 Purity Research',
     images: [
@@ -55,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '99 Purity Research | Premium Peptide Verification',
-    description: '100% HPLC & Mass Spec Verified sequences for experimental research.',
+    title: '99 Purity Research | Premium Peptides Research & Verification',
+    description: '100% HPLC & Mass Spec Verified research peptides for experimental studies.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -84,7 +87,7 @@ export default function RootLayout({
       name: '99 Purity Research',
       url: 'https://99purityresearch.vercel.app',
       logo: 'https://99purityresearch.vercel.app/logo.png',
-      description: 'The global standard for analytical grade peptide synthesis.',
+      description: '99 Purity Research: The industry standard for analytical grade peptides research and synthesis.',
       sameAs: [
         'https://twitter.com/99purityresearch',
         'https://www.linkedin.com/company/99purityresearch',
