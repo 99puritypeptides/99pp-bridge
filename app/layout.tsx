@@ -20,11 +20,11 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: '99 Purity Research | #1 Database for Peptides Research & Synthesis',
+    default: '99 Purity Research | #1 Authority for Research Peptides in USA',
     template: '%s | 99 Purity Research'
   },
-  description: '99 Purity Research is the global leader in analytical grade peptide research and sequence identification. We feature 100% HPLC and Mass Spectrometry verified data for research peptides in USA.',
-  keywords: ['99 purity research', 'peptides research', 'research peptides', 'research peptides in USA', 'peptide synthesis', 'analytical grade peptides', 'HPLC verification', 'mass spectrometry'],
+  description: 'The authoritative portal for 99 purity peptides research in the USA. Access 100% HPLC & Mass Spectrometry verified sequences, technical monographs, and synthesis protocols for analytical laboratory research.',
+  keywords: ['99 purity research', 'peptides research', 'research peptides', 'research peptides in USA', 'peptide synthesis', 'analytical grade peptides', 'HPLC verification', 'mass spectrometry', 'buy peptides for research'],
   authors: [{ name: '99 Purity Research' }],
   creator: '99 Purity Research',
   publisher: '99 Purity Research',
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: '99 Purity Research | Premium Peptides Research & Verification',
-    description: 'Elevating In-Vitro Peptides Research through Verifiable Synthesis. 100% HPLC & Mass Spec Verified research peptides in USA.',
+    title: '99 Purity Research | #1 Authority for Research Peptides in USA',
+    description: 'The authoritative database for 99 purity peptides research. 100% HPLC & Mass Spec Verified sequences for analytical laboratory research.',
     url: 'https://research.99puritypeptides.com',
     siteName: '99 Purity Research',
     images: [
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '99 Purity Research | Premium Peptides Research & Verification',
-    description: '100% HPLC & Mass Spec Verified research peptides for experimental studies.',
+    title: '99 Purity Research | #1 Authority for Research Peptides in USA',
+    description: '100% HPLC & Mass Spec Verified research peptides for analytical laboratory studies.',
     images: [{
       url: '/og-image.png',
       width: 1200,
