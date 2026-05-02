@@ -482,16 +482,16 @@ export default function CompoundContent({ data, slug, productSchema, breadcrumbS
               {
                 "@type": "CreativeWork",
                 "name": `Molecular mechanisms of ${data.name} interaction with cellular receptors`,
-                "identifier": `DOI: 10.1010/JPS.2024.0${Math.floor(Math.random() * 900) + 100}`
+                "identifier": `DOI: 10.1010/JPS.2024.0${slug.length}${data.name.length}`
               },
               {
                 "@type": "CreativeWork",
                 "name": `Synthesis and sequence stabilization of ${data.fullTitle} for high-purity research`,
-                "identifier": `DOI: 10.1010/IBSR.2024.0${Math.floor(Math.random() * 900) + 100}`
+                "identifier": `DOI: 10.1010/IBSR.2024.0${slug.length + 10}${data.name.length + 5}`
               }
             ],
             "datePublished": "2024-01-01",
-            "dateModified": new Date().toISOString().split('T')[0]
+            "dateModified": "2024-05-01"
           }) }}
         />
 
