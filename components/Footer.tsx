@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,11 +7,15 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-12">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex h-8 w-8 items-center justify-center border border-accent/20 bg-accent/5 rounded-sm">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D2FF" strokeWidth="1.5">
-                  <path d="M12 2l9 4.9V17l-9 5-9-5V6.9z" />
-                </svg>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="flex-shrink-0">
+                <Image
+                  src="/99Logo.png"
+                  alt="99 Purity Logo"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
               </div>
               <span className="font-display text-base font-medium uppercase tracking-[0.2em] text-primary">
                 99 Purity <span className="font-light text-secondary">Research</span>
@@ -28,6 +33,7 @@ export default function Footer() {
                 <li><Link href="/database" className="hover:text-accent transition-colors">Database</Link></li>
                 <li><Link href="/synthesis" className="hover:text-accent transition-colors">Synthesis</Link></li>
                 <li><Link href="/protocols" className="hover:text-accent transition-colors">Protocols</Link></li>
+                <li><Link href="/glossary" className="hover:text-accent transition-colors">Technical Glossary</Link></li>
               </ul>
             </div>
             <div>

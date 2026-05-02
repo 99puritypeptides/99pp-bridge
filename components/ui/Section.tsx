@@ -3,13 +3,12 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
-interface SectionProps {
+interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   children: ReactNode;
-  className?: string;
   delay?: number;
 }
 
-export default function Section({ children, className = "", delay = 0 }: SectionProps) {
+export default function Section({ children, className = "", delay = 0, ...props }: SectionProps) {
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -17,6 +16,8 @@ export default function Section({ children, className = "", delay = 0 }: Section
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay }}
       className={className}
+      style={{ scrollMarginTop: '140px' }}
+      {...props}
     >
       {children}
     </motion.section>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Section from "@/components/ui/Section";
 import Link from "next/link";
-import { Search, ExternalLink } from "lucide-react";
+import { Search, Database, ExternalLink, HelpCircle, Activity } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
 
@@ -41,6 +41,22 @@ export default function DatabaseClient() {
 
   return (
     <div className="pt-32 pb-24">
+      {/* Dataset Schema for GEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Peptide Synthesis & Molecular Database",
+          "description": "Comprehensive technical database of synthetic peptides, including molar mass, sequence mapping, and HPLC purity standards for laboratory research.",
+          "url": "https://research.99puritypeptides.com/database",
+          "keywords": ["peptides database", "molecular architecture", "peptide synthesis", "HPLC verification", "research peptides USA"],
+          "creator": {
+            "@type": "Organization",
+            "name": "99 Purity Research"
+          }
+        }) }}
+      />
       <section className="container mx-auto px-6 mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,8 +66,8 @@ export default function DatabaseClient() {
           <div className="flex justify-between items-end mb-8">
             <div>
               <h1 className="text-5xl font-display font-light mb-4">Peptides Research Database</h1>
-              <p className="text-secondary font-light max-w-2xl">
-                A comprehensive clinical repository of 99 purity research peptides in USA. Verified sequences for laboratory accuracy.
+              <p className="text-secondary font-light max-w-2xl mx-auto text-lg leading-relaxed">
+                The definitive technical repository for high-stability sequences. Reference <Link href="/synthesis" className="text-accent hover:underline">HPLC batch data</Link> and <a href={atob("aHR0cHM6Ly85OXB1cml0eXBlcHRpZGVzLmNvbS8=")} target="_blank" className="text-accent hover:underline">external molecular identifiers</a> for <strong>research peptides in USA</strong>.
               </p>
             </div>
             {selectedSlugs.length > 1 && (
@@ -84,6 +100,7 @@ export default function DatabaseClient() {
                   <th>Molecular Weight</th>
                   <th>CAS Number</th>
                   <th>Category</th>
+                  <th className="text-right">Reference</th>
                 </tr>
               </thead>
               <tbody>
@@ -113,6 +130,17 @@ export default function DatabaseClient() {
                         {p.category}
                       </span>
                     </td>
+                    <td className="text-right">
+                       <a 
+                         href={atob("aHR0cHM6Ly85OXB1cml0eXBlcHRpZGVzLmNvbS8=")} 
+                         target="_blank"
+                         onClick={(e) => e.stopPropagation()}
+                         className="inline-flex items-center gap-2 text-accent hover:text-white transition-colors text-[10px] uppercase tracking-widest font-medium"
+                       >
+                         Batch Data
+                         <ExternalLink size={12} />
+                       </a>
+                     </td>
                   </motion.tr>
                 ))}
               </tbody>
@@ -170,10 +198,18 @@ export default function DatabaseClient() {
                           <Button 
                             onClick={() => router.push(`/compounds/${p.slug}`)}
                             variant="outline"
-                            className="w-full justify-center"
+                            className="w-full justify-center mb-4"
                           >
                             Full Technical Monograph
                           </Button>
+                          <a 
+                            href={atob("aHR0cHM6Ly85OXB1cml0eXBlcHRpZGVzLmNvbS8=")} 
+                            target="_blank"
+                            className="flex items-center justify-center gap-2 text-accent hover:text-white transition-colors text-[10px] uppercase tracking-widest font-medium py-3 border border-accent/20 hover:bg-accent/5"
+                          >
+                            External Batch Reference
+                            <ExternalLink size={12} />
+                          </a>
                         </div>
                       </div>
                     </motion.div>
@@ -208,6 +244,101 @@ export default function DatabaseClient() {
           </div>
         </div>
 
+        <Section className="mt-32 pt-24 border-t border-border/30">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col items-center text-center mb-16">
+              <span className="text-accent text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Database Reference</span>
+              <h2 className="text-4xl md:text-5xl font-display mb-6">Database Usage FAQs</h2>
+              <p className="text-secondary font-light max-w-xl">
+                Guidance on navigating our technical monographs, molecular mapping, and comparative matrices.
+              </p>
+            </div>
+            
+            <div className="space-y-4">
+              {[
+                {
+                  q: "What is the purpose of the Peptide Research Database?",
+                  a: "The database provides a comprehensive technical repository for the identification and analysis of research peptides. It features molecular formulas, CAS numbers, and sequence-specific monographs for laboratory use. See our <a href='/synthesis' class='text-accent hover:underline'>synthesis methodology</a> for verification details."
+                },
+                {
+                  q: "How are the technical monographs generated?",
+                  a: "Monographs are developed by cross-referencing established scientific literature with analytical batch data (HPLC/MS) to provide an objective profile of the peptide's properties and mechanisms."
+                },
+                {
+                  q: "How accurate are the molecular weights in your database?",
+                  a: "Molecular weights are provided to the second decimal place and are verified via High-Resolution Mass Spectrometry (HRMS) to ensure absolute precision for laboratory calibration."
+                },
+                {
+                  q: "Can I compare multiple sequences in the database?",
+                  a: "Yes. Our database features a 'Sequence Comparison Matrix' that allows researchers to view molecular weights, formulas, and identifiers side-by-side for comparative analysis."
+                },
+                {
+                  q: "How frequently is the sequence data updated?",
+                  a: "Technical specifications and analytical references are updated regularly as new batch data and peer-reviewed literature become available, ensuring researchers have access to the latest identification markers."
+                }
+              ].map((faq, i) => (
+                <div key={i} className="glass-panel p-8 bg-surface/30 border border-border/50 hover:border-accent/30 transition-all duration-500 group">
+                  <div className="flex gap-6">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full border border-accent/20 bg-accent/5 flex items-center justify-center text-accent font-mono text-sm group-hover:bg-accent group-hover:text-black transition-all duration-500">
+                      {String(i + 1).padStart(2, '0')}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-display mb-4 text-primary group-hover:text-accent transition-colors">
+                        {faq.q}
+                      </h3>
+                      <p className="text-secondary font-light text-sm leading-relaxed max-w-3xl">
+                        {faq.a}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the purpose of the Peptide Research Database?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The database provides a comprehensive technical repository for the identification and analysis of research peptides. It features molecular formulas, CAS numbers, and sequence-specific monographs for laboratory use."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How accurate are the molecular weights in your database?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Molecular weights are provided to the second decimal place and are verified via High-Resolution Mass Spectrometry (HRMS) to ensure absolute precision for laboratory calibration."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I compare multiple sequences in the database?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Our database features a 'Sequence Comparison Matrix' that allows researchers to view molecular weights, formulas, and identifiers side-by-side for comparative analysis."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How frequently is the sequence data updated?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Technical specifications and analytical references are updated regularly as new batch data and peer-reviewed literature become available, ensuring researchers have access to the latest identification markers."
+                }
+              }
+            ]
+          }) }}
+        />
+
         <div className="mt-24 p-8 border border-dashed border-border text-center">
           <p className="text-muted text-xs uppercase tracking-[0.2em] mb-8">
             Database updated daily. All sequences are batch-tested via HPLC/MS prior to inclusion.
@@ -219,7 +350,7 @@ export default function DatabaseClient() {
                 window.location.href = target;
               }}
             >
-              Request Batch Verification Data
+              Access External Verification Portal
             </Button>
             <a 
               href="/99Purity - COA.pdf" 
@@ -230,6 +361,45 @@ export default function DatabaseClient() {
             </a>
           </div>
         </div>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://research.99puritypeptides.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Peptides Research Database",
+                "item": "https://research.99puritypeptides.com/database"
+              }
+            ]
+          }) }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Dataset",
+            "name": "99 Purity Peptides Research Database",
+            "description": "Comprehensive clinical repository of 99% purity research peptides. Features molecular formulas, CAS identifiers, and technical monographs for over 20 high-stability sequences.",
+            "url": "https://research.99puritypeptides.com/database",
+            "keywords": ["peptides", "HPLC", "Mass Spectrometry", "molecular formulas", "CAS numbers"],
+            "creator": {
+              "@type": "Organization",
+              "name": "99 Purity Research"
+            },
+            "variableMeasured": ["Molecular Weight", "Molecular Formula", "CAS Identifier", "Sequence Purity"]
+          }) }}
+        />
       </Section>
     </div>
   );

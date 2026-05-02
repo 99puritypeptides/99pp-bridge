@@ -9,6 +9,7 @@ const mainPages = [
   { name: "Sequence Database", path: "/database" },
   { name: "Synthesis Methodology", path: "/synthesis" },
   { name: "Volumetric Calibration Protocols", path: "/protocols" },
+  { name: "Technical Glossary", path: "/glossary" },
   { name: "Terms of Use", path: "/terms" },
   { name: "Privacy Policy", path: "/privacy" },
   { name: "Research Blog", path: "https://99puritypeptides.com/blog/" },

@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
-import { BarChart3, Microscope, ShieldAlert, ThermometerSnowflake } from "lucide-react";
+import Link from "next/link";
+import { BarChart3, Microscope, ShieldAlert, ThermometerSnowflake, HelpCircle } from "lucide-react";
 
 export default function SynthesisClient() {
   return (
@@ -18,7 +19,7 @@ export default function SynthesisClient() {
           <span className="text-accent text-[10px] uppercase tracking-[0.3em] font-medium mb-8 block">Analytical Verification</span>
           <h1 className="text-5xl md:text-7xl font-display font-light mb-8 max-w-4xl mx-auto">Peptides Research <span className="italic">Synthesis</span></h1>
           <p className="text-secondary font-light max-w-2xl mx-auto text-lg leading-relaxed">
-            Eliminating the "Theory Gap" in research peptides through rigid batch-testing and 99 purity mass spectrometry fingerprinting.
+            Eliminating the "Theory Gap" in research peptides through <strong>third-party tested</strong> batch verification and <Link href="/database" className="text-accent hover:underline">HPLC verified peptides</Link> to ensure absolute molecular identity for <strong>research peptides in USA</strong>.
           </p>
         </motion.div>
       </section>
@@ -30,8 +31,8 @@ export default function SynthesisClient() {
             <div>
               <h2 className="text-xl md:text-2xl font-display mb-4">Chromatographic Purity Analysis</h2>
               <p className="text-secondary font-light text-xs md:text-sm max-w-xl">
-                High-Performance Liquid Chromatography (HPLC) is our primary tool for verifying molecular integrity. 
-                A single, sharp peak indicates a high-purity sequence with minimal baseline interference.
+                <strong>High-Performance Liquid Chromatography (HPLC)</strong> is our primary tool for verifying molecular integrity. 
+                Our <strong>HPLC verified research peptides</strong> ensure a single, sharp peak, indicating a high-purity sequence with minimal baseline interference.
               </p>
             </div>
             <div className="flex gap-4">
@@ -133,7 +134,7 @@ export default function SynthesisClient() {
             </div>
             <h3 className="text-3xl font-display mb-6">Third-Party Verification</h3>
             <p className="text-secondary font-light leading-relaxed mb-8">
-              We don't just rely on in-house synthesis data. Random batches are sent to independent third-party laboratories for COA (Certificate of Analysis) cross-verification.
+              We don't just rely on in-house synthesis data. Random batches are sent to independent third-party laboratories for <Link href="/database" className="text-accent hover:underline">Peptide Certificate of Analysis (COA)</Link> cross-verification. Access <a href={atob("aHR0cHM6Ly85OXB1cml0eXBlcHRpZGVzLmNvbS8=")} target="_blank" className="text-accent hover:underline">external batch references</a> to ensure <strong>99% purity online</strong> standards are maintained.
             </p>
             <Button 
               onClick={() => {
@@ -162,10 +163,141 @@ export default function SynthesisClient() {
         </div>
       </div>
 
+      <Section className="container mx-auto px-6 py-24 border-t border-border/30">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col items-center text-center mb-16">
+            <span className="text-accent text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Analytical Standards</span>
+            <h2 className="text-4xl md:text-5xl font-display mb-6">Synthesis Methodology FAQs</h2>
+            <p className="text-secondary font-light max-w-xl">
+              Deep-dive technical insights into chromatographic isolation, mass mapping, and molecular stabilization.
+            </p>
+          </div>
+          
+          <div className="space-y-4">
+            {[
+              {
+                q: "What is HPLC verification in peptide research?",
+                a: "High-Performance Liquid Chromatography (HPLC) is an analytical technique used to separate, identify, and quantify each component in a mixture. In peptide research, it is used to verify the quantitative purity of a synthesized sequence, ensuring zero synthesis drift."
+              },
+              {
+                q: "Why is Mass Spectrometry (MS) used alongside HPLC?",
+                a: "While HPLC verifies purity, Mass Spectrometry (MS) confirms molecular identity by measuring the precise mass-to-charge ratio of the ions. This ensures the synthesized sequence matches the target amino acid blueprint with absolute precision."
+              },
+              {
+                q: "What is the significance of TFA removal in research peptides?",
+                a: "Trifluoroacetic acid (TFA) is commonly used during synthesis. High-purity research requires TFA removal (often to <1%) to prevent cellular toxicity in in-vitro models and ensure the peptide's biological activity remains uncompromised."
+              },
+              {
+                q: "Acetate vs. HCl salts: Which is better for research?",
+                a: "Most research peptides are provided as Acetate salts, as they are generally more biocompatible with cellular assays than HCl salts, which can significantly alter the pH of the research medium."
+              },
+              {
+                q: "What is the benefit of Lyophilization?",
+                a: "Lyophilization (freeze-drying) removes moisture from the peptide while it is in a frozen state. This stabilizes the molecular structure, preventing enzymatic degradation and ensuring a long shelf-life for laboratory use. See our <a href='/protocols' class='text-accent hover:underline'>handling protocols</a> for more details."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="glass-panel p-8 bg-surface/30 border border-border/50 hover:border-accent/30 transition-all duration-500 group">
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-accent/20 bg-accent/5 flex items-center justify-center text-accent font-mono text-sm group-hover:bg-accent group-hover:text-black transition-all duration-500">
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-display mb-4 text-primary group-hover:text-accent transition-colors">
+                      {faq.q}
+                    </h3>
+                    <p className="text-secondary font-light text-sm leading-relaxed max-w-3xl">
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is HPLC verification in peptide research?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "High-Performance Liquid Chromatography (HPLC) is an analytical technique used to separate, identify, and quantify each component in a mixture. In peptide research, it is used to verify the quantitative purity of a synthesized sequence."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is Mass Spectrometry (MS) used alongside HPLC?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "While HPLC verifies purity, Mass Spectrometry (MS) confirms molecular identity by measuring the precise mass-to-charge ratio of the ions. This ensures the synthesized sequence matches the target amino acid blueprint."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the significance of TFA removal in research peptides?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Trifluoroacetic acid (TFA) is used during synthesis. High-purity research requires TFA removal to prevent cellular toxicity in in-vitro models."
+              }
+            }
+          ]
+        }) }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://research.99puritypeptides.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Synthesis Methodology",
+              "item": "https://research.99puritypeptides.com/synthesis"
+            }
+          ]
+        }) }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TechArticle",
+          "headline": "Peptide Research Synthesis & Analytical Verification",
+          "description": "Technical methodology for verifying high-purity research peptides using HPLC, Mass Spectrometry, and Lyophilization standards.",
+          "author": {
+            "@type": "Organization",
+            "name": "99 Purity Research"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "99 Purity Research",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://research.99puritypeptides.com/99Logo.png"
+            }
+          }
+        }) }}
+      />
+
       <Section className="container mx-auto px-6 py-24 text-center border-t border-border">
         <h2 className="text-3xl font-display mb-8">Rigid Standards for Rigid Research.</h2>
         <p className="text-secondary font-light max-w-2xl mx-auto mb-12">
-          Don't compromise your laboratory models with unverified sequences. Source from the industry standard in analytical purity.
+          Don't compromise your laboratory models with unverified sequences. Reference the industry standard in analytical purity.
         </p>
         <Button 
           onClick={() => {
@@ -174,7 +306,7 @@ export default function SynthesisClient() {
           }}
           className="mx-auto"
         >
-          View Verified Catalog
+          Explore Research Sequences
         </Button>
       </Section>
     </div>

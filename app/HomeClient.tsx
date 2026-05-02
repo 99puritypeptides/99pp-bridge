@@ -6,7 +6,7 @@ import Section from "@/components/ui/Section";
 import Plasma from "@/components/ui/Plasma";
 import InteractiveCard from "@/components/ui/InteractiveCard";
 import Link from "next/link";
-import { Plus } from "lucide-react";
+import { Plus, HelpCircle } from "lucide-react";
 
 const featuredProducts = [
   {
@@ -31,20 +31,75 @@ const featuredProducts = [
     color: "#8B5CF6"
   }
 ];
+const homeFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is 99 Purity Research?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "99 Purity Research is a comprehensive informational database and research resource dedicated to the technical analysis of high-purity peptides in the USA. We provide detailed monographs and HPLC/MS verified data for laboratory research."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is 99% purity important for research peptides?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High purity (>99%) is critical for experimental reproducibility. Impurities in synthesis can introduce confounding variables in in-vitro models, potentially compromising the accuracy of laboratory data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the sequences in your database verified?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every sequence featured in our research database is cross-referenced with third-party HPLC (High-Performance Liquid Chromatography) and Mass Spectrometry (MS) data to ensure absolute molecular identity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is domestic sequence verification handled in the USA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All sequence verification is conducted in ISO-certified US laboratories. This ensures that the technical data provided for research peptides in the USA meets strict domestic analytical standards for academic and institutional research."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between research grade and pharmaceutical grade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Research grade peptides are synthesized specifically for in-vitro laboratory analysis and are not intended for human consumption. While they maintain the same >99% purity as pharmaceutical grade, they are strictly categorized for experimental use to comply with research regulations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I access batch-specific HPLC and Mass Spec data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Batch-specific analytical data can be accessed through our external reference portal. Every sequence in our database is linked to a verifiable Certificate of Analysis (COA) cross-referenced by batch number."
+      }
+    }
+  ]
+};
 
 export default function HomeClient() {
   return (
     <div className="relative overflow-hidden">
       {/* Full-Width Interactive Plasma Background (Limited to Hero) */}
-      <div className="absolute top-0 left-0 w-full h-[800px] z-[1] pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-[850px] md:h-[800px] z-[1] pointer-events-none bg-background">
+        <div className="absolute inset-0 bg-accent/5 opacity-20 md:hidden"></div>
         <Plasma
           color="#1e7a8a"
-          speed={1.0}
-          scale={1.5}
-          opacity={0.9}
+          speed={0.6}
+          scale={1.8}
+          opacity={1.0}
           mouseInteractive={true}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background"></div>
       </div>
 
       <div className="relative z-10">
@@ -63,7 +118,7 @@ export default function HomeClient() {
               The Gold Standard for <span className="text-accent italic">99 Purity</span> Peptides Research.
             </h1>
             <p className="max-w-2xl mx-auto text-secondary text-base md:text-lg font-light leading-relaxed mb-8 md:mb-12 px-4 md:px-0">
-              99 Purity Research bridges the gap between theory and execution with 100% HPLC and Mass Spectrometry verified sequences for elite research peptides in USA.
+              99 Purity Research is the primary <Link href="/database" className="text-accent hover:underline">research resource for analytical sequences</Link>, bridging the gap between theory and execution with <Link href="/synthesis" className="text-accent hover:underline">100% HPLC and Mass Spectrometry verified data</Link> for <strong>high-purity research peptides in USA</strong>.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Button href="/database">Browse Sequence Database</Button>
@@ -221,12 +276,12 @@ export default function HomeClient() {
           </div>
           <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="max-w-2xl text-center lg:text-left">
-              <h2 className="text-4xl md:text-5xl font-display mb-8">100% HPLC {"&"} Mass Spec Verified</h2>
+              <h2 className="text-4xl md:text-5xl font-display mb-8">HPLC Verified Data</h2>
               <p className="text-secondary font-light leading-relaxed">
-                Experimental integrity is non-negotiable. Every sequence is subjected to rigorous analytical verification to ensure zero synthesis drift and absolute molecular identity.
+                Experimental integrity is non-negotiable. Every sequence is subjected to <Link href="/synthesis" className="text-accent hover:underline">rigorous third-party tested analytical verification</Link> to ensure zero synthesis drift and absolute molecular identity for <strong>USA made research chemicals</strong>.
               </p>
             </div>
-            <Button href="/synthesis" variant="outline" className="bg-background">View Methodology</Button>
+            <Button href="/synthesis" variant="outline" className="bg-background">View HPLC Methodology</Button>
           </div>
         </Section>
 
@@ -253,6 +308,43 @@ export default function HomeClient() {
             </div>
           </div>
         </Section>
+        {/* FAQ Section */}
+        <Section className="container mx-auto px-6 py-24 border-t border-border/30">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col items-center text-center mb-16">
+              <span className="text-accent text-[10px] uppercase tracking-[0.3em] font-medium mb-4">Knowledge Base</span>
+              <h2 className="text-4xl md:text-5xl font-display mb-6">Research Insights {"&"} Technical FAQs</h2>
+              <p className="text-secondary font-light max-w-xl">
+                Comprehensive technical guidance on sequence identification, analytical standards, and research compliance.
+              </p>
+            </div>
+            
+            <div className="space-y-4">
+              {homeFaqSchema.mainEntity.map((faq, i) => (
+                <div key={i} className="glass-panel p-8 bg-surface/30 border border-border/50 hover:border-accent/30 transition-all duration-500 group">
+                  <div className="flex gap-6">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full border border-accent/20 bg-accent/5 flex items-center justify-center text-accent font-mono text-sm group-hover:bg-accent group-hover:text-black transition-all duration-500">
+                      {String(i + 1).padStart(2, '0')}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-display mb-4 text-primary group-hover:text-accent transition-colors">
+                        {faq.name}
+                      </h3>
+                      <p className="text-secondary font-light text-sm leading-relaxed max-w-3xl">
+                        {faq.acceptedAnswer.text}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
+        />
 
         {/* Bot-Cloaked CTA Section */}
         <Section className="container mx-auto px-4 md:px-6 py-24 md:py-32 border-t border-border">
@@ -261,9 +353,9 @@ export default function HomeClient() {
 
             <div className="relative z-10 max-w-2xl mx-auto">
               <span className="text-accent text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-medium mb-6 md:mb-8 block">Laboratory Access Portal</span>
-              <h2 className="text-3xl md:text-6xl font-display mb-8 md:mb-10 leading-[1.1] md:leading-[1.1]">The Premier Source for Research Peptides in <span className="italic">USA</span></h2>
+              <h2 className="text-3xl md:text-6xl font-display mb-8 md:mb-10 leading-[1.1] md:leading-[1.1]">The Primary Database for <span className="italic">Sequence Analysis in USA</span></h2>
               <p className="text-secondary font-light text-base md:text-lg leading-relaxed mb-10 md:mb-12">
-                Join our verified network of 99 purity research institutions to access the highest stability peptide ligands currently synthesized in the laboratory.
+                Reference our <Link href="/database" className="text-accent hover:underline">database of 99 purity research monographs</Link> to access <strong>comprehensive technical data</strong> on high-stability sequences like <Link href="/compounds/bpc-157" className="text-accent hover:underline">BPC-157</Link> and <Link href="/compounds/ghk-cu" className="text-accent hover:underline">GHK-Cu</Link>.
               </p>
 
               <Button
@@ -273,7 +365,7 @@ export default function HomeClient() {
                 }}
                 className="mx-auto"
               >
-                Access Research Portal
+                External Reference Portal
               </Button>
 
               <div className="mt-12 flex items-center justify-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">

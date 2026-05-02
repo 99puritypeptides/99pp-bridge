@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://99purityresearch.vercel.app'
+  const baseUrl = 'https://research.99puritypeptides.com'
   
   // In a real app, you might fetch slugs from an API
   const compounds = [
@@ -38,6 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/protocols`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/glossary`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

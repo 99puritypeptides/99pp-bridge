@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Button from "./ui/Button";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -45,14 +46,16 @@ export default function Navigation() {
         <nav className="relative flex items-center justify-between md:justify-start gap-2 md:gap-4 p-2.5 md:p-3.5 bg-surface/80 md:bg-surface/40 backdrop-blur-xl border border-border/50 rounded-none shadow-2xl w-full md:w-fit max-w-[95vw] md:max-w-none">
           {/* Brand Section */}
           <div className="px-2 md:px-6 md:pr-10 md:border-r border-border/30">
-            <Link href="/" className="flex items-center gap-4 group">
-              <div className="relative flex h-8 w-8 items-center justify-center">
-                {/* Logo Icon with double hex frame */}
-                <div className="absolute inset-0 border border-accent/20 rotate-45 group-hover:rotate-90 transition-transform duration-700"></div>
-                <div className="absolute inset-1 border border-accent/40 -rotate-12 group-hover:rotate-12 transition-transform duration-700"></div>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00D2FF" strokeWidth="2.5" className="relative z-10">
-                  <path d="M12 2l9 4.9V17l-9 5-9-5V6.9z" />
-                </svg>
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="flex-shrink-0">
+                <Image
+                  src="/99Logo.png"
+                  alt="99 Purity Logo"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                  priority
+                />
               </div>
               <div className="flex flex-col -gap-1">
                 <div className="flex items-baseline gap-1.5">

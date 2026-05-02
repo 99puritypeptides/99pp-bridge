@@ -20,30 +20,32 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: '99 Purity Research | #1 Source for Peptides Research & Synthesis',
+    default: '99 Purity Research | #1 Database for Peptides Research & Synthesis',
     template: '%s | 99 Purity Research'
   },
-  description: '99 Purity Research is the global leader in analytical grade peptide synthesis. We provide 100% HPLC and Mass Spectrometry verified research peptides in USA for academic and private institutions.',
+  description: '99 Purity Research is the global leader in analytical grade peptide research and sequence identification. We feature 100% HPLC and Mass Spectrometry verified data for research peptides in USA.',
   keywords: ['99 purity research', 'peptides research', 'research peptides', 'research peptides in USA', 'peptide synthesis', 'analytical grade peptides', 'HPLC verification', 'mass spectrometry'],
   authors: [{ name: '99 Purity Research' }],
   creator: '99 Purity Research',
   publisher: '99 Purity Research',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/99Logo.png',
+    shortcut: '/99Logo.png',
+    apple: '/99Logo.png',
   },
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://99purityresearch.vercel.app'),
+  metadataBase: new URL('https://research.99puritypeptides.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: '99 Purity Research | Premium Peptides Research & Verification',
     description: 'Elevating In-Vitro Peptides Research through Verifiable Synthesis. 100% HPLC & Mass Spec Verified research peptides in USA.',
-    url: 'https://99purityresearch.vercel.app',
+    url: 'https://research.99puritypeptides.com',
     siteName: '99 Purity Research',
     images: [
       {
@@ -60,7 +62,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '99 Purity Research | Premium Peptides Research & Verification',
     description: '100% HPLC & Mass Spec Verified research peptides for experimental studies.',
-    images: ['/og-image.png'],
+    images: [{
+      url: '/og-image.png',
+      width: 1200,
+      height: 630,
+      alt: '99 Purity Research Laboratory',
+    }],
   },
   robots: {
     index: true,
@@ -85,8 +92,8 @@ export default function RootLayout({
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: '99 Purity Research',
-      url: 'https://99purityresearch.vercel.app',
-      logo: 'https://99purityresearch.vercel.app/logo.png',
+      url: 'https://research.99puritypeptides.com',
+      logo: 'https://research.99puritypeptides.com/99Logo.png',
       description: '99 Purity Research: The industry standard for analytical grade peptides research and synthesis.',
       sameAs: [
         'https://twitter.com/99purityresearch',
@@ -97,12 +104,12 @@ export default function RootLayout({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: '99 Purity Research',
-      url: 'https://99purityresearch.vercel.app',
+      url: 'https://research.99puritypeptides.com',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://99purityresearch.vercel.app/database?q={search_term_string}'
+          urlTemplate: 'https://research.99puritypeptides.com/database?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
