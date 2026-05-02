@@ -6,17 +6,9 @@ import Footer from '@/components/Footer';
 import Preloader from '@/components/ui/Preloader';
 import SmoothScroll from '@/components/ui/SmoothScroll';
 
-const inter = Inter({ 
-  subsets: ['latin'], 
-  variable: '--font-inter',
-  weight: ['300', '400', '500'],
-});
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
-const outfit = Outfit({ 
-  subsets: ['latin'], 
-  variable: '--font-outfit',
-  weight: ['300', '400', '600'],
-});
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit', display: 'swap' });
 
 export const metadata: Metadata = {
   title: {

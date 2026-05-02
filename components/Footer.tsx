@@ -28,8 +28,8 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <h4 className="text-primary text-[11px] uppercase tracking-widest mb-4">Research</h4>
-              <ul className="space-y-2 text-[12px] font-light text-muted">
+              <h3 className="text-primary text-[11px] uppercase tracking-widest mb-4 font-bold">Research</h3>
+              <ul className="space-y-2 text-[12px] font-light text-secondary">
                 <li><Link href="/database" className="hover:text-accent transition-colors">Database</Link></li>
                 <li><Link href="/synthesis" className="hover:text-accent transition-colors">Synthesis</Link></li>
                 <li><Link href="/protocols" className="hover:text-accent transition-colors">Protocols</Link></li>
@@ -37,8 +37,8 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="text-primary text-[11px] uppercase tracking-widest mb-4">Corporate</h4>
-              <ul className="space-y-2 text-[12px] font-light text-muted">
+              <h3 className="text-primary text-[11px] uppercase tracking-widest mb-4 font-bold">Corporate</h3>
+              <ul className="space-y-2 text-[12px] font-light text-secondary">
                 <li><Link href="/terms" className="hover:text-accent transition-colors">Terms of Use</Link></li>
                 <li><Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/sitemap" className="hover:text-accent transition-colors">Sitemap</Link></li>
@@ -48,21 +48,21 @@ export default function Footer() {
           </div>
 
           <div className="col-span-full mt-16 pt-8 border-t border-border/30">
-            <p className="text-[10px] text-muted leading-relaxed uppercase tracking-widest text-center max-w-4xl mx-auto">
-              <span className="text-accent font-bold">Research Disclaimer:</span> All products listed on this site and within this research database are strictly for in-vitro laboratory research purposes only. They are not intended for human or animal consumption, diagnostic, therapeutic, or any other purposes. 99 Purity Research does not provide medical advice or protocols for human application. Experimental integrity is the responsibility of the lead researcher.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-16 pt-8 border-t border-border/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] text-muted tracking-widest uppercase">
-            © 2026 99 Purity Research. Precision Synthesis V4.0.2
+          <p className="text-[10px] text-secondary/60 leading-relaxed uppercase tracking-widest text-center max-w-4xl mx-auto">
+            <span className="text-accent font-bold">Research Disclaimer:</span> All products listed on this site and within this research database are strictly for in-vitro laboratory research purposes only. They are not intended for human or animal consumption, diagnostic, therapeutic, or any other purposes. 99 Purity Research does not provide medical advice or protocols for human application. Experimental integrity is the responsibility of the lead researcher.
           </p>
-          <div className="flex gap-8">
-            <Link href="/privacy" className="text-[10px] text-muted hover:text-accent transition-colors uppercase tracking-widest">Privacy</Link>
-            <Link href="/terms" className="text-[10px] text-muted hover:text-accent transition-colors uppercase tracking-widest">Terms</Link>
-            <Link href="/sitemap" className="text-[10px] text-muted hover:text-accent transition-colors uppercase tracking-widest">Sitemap</Link>
-          </div>
+        </div>
+      </div>
+
+      <div className="mt-16 pt-8 border-t border-border/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p className="text-[10px] text-secondary/60 tracking-widest uppercase">
+          © 2026 99 Purity Research. Precision Synthesis V4.0.2
+        </p>
+        <div className="flex gap-8">
+          <Link href="/privacy" className="text-[10px] text-secondary/80 hover:text-accent transition-colors uppercase tracking-widest">Privacy</Link>
+          <Link href="/terms" className="text-[10px] text-secondary/80 hover:text-accent transition-colors uppercase tracking-widest">Terms</Link>
+          <Link href="/sitemap" className="text-[10px] text-secondary/80 hover:text-accent transition-colors uppercase tracking-widest">Sitemap</Link>
+        </div>
         </div>
       </div>
     </footer>

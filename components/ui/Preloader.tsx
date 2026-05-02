@@ -67,51 +67,33 @@ export default function Preloader() {
               </div>
             </div>
 
-            {/* Staggered Text Reveal */}
+            {/* Refined Text Reveal */}
             <div className="flex flex-col items-center gap-4">
-              <div className="flex gap-[0.2em]">
-                {text.split("").map((char, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, filter: "blur(0px)" }}
-                    transition={{ 
-                      duration: 0.8, 
-                      delay: i * 0.03,
-                      ease: "easeOut"
-                    }}
-                    className={`text-[10px] uppercase tracking-[0.3em] font-display ${
-                      char === " " ? "w-2" : ""
-                    } ${
-                      i > 11 ? "text-accent font-bold" : "text-primary/70 font-medium"
-                    }`}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </div>
+              <motion.div
+                initial={{ opacity: 0, letterSpacing: "1em" }}
+                animate={{ opacity: 1, letterSpacing: "0.3em" }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="text-[10px] uppercase font-display text-primary/80 tracking-[0.3em]"
+              >
+                INITIALIZING <span className="text-accent font-bold">RESEARCH PORTAL</span>
+              </motion.div>
 
               {/* Technical Metadata */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2 }}
-                className="flex items-center gap-6 text-[8px] uppercase tracking-[0.4em] text-muted font-mono"
-              >
+              <div className="flex items-center gap-6 text-[8px] uppercase tracking-[0.4em] text-secondary/40 font-mono">
                 <span>SYS.VER: 4.0.2</span>
                 <span className="w-1 h-1 bg-accent/40 rounded-full"></span>
                 <span>ENC: AES-256</span>
                 <span className="w-1 h-1 bg-accent/40 rounded-full"></span>
-                <span>{progress}%</span>
-              </motion.div>
+                <span>LOAD_STABLE</span>
+              </div>
 
               {/* Progress Bar */}
-              <div className="relative mt-8 w-64 h-[2px] bg-white/5 overflow-hidden rounded-full">
+              <div className="relative mt-8 w-64 h-[1px] bg-white/5 overflow-hidden rounded-full">
                 <motion.div 
                   initial={{ x: "-100%" }}
                   animate={{ x: "0%" }}
                   transition={{ duration: 2, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-accent to-transparent shadow-[0_0_10px_rgba(0,255,255,0.5)]"
+                  className="absolute inset-0 bg-accent/60"
                 />
               </div>
             </div>
