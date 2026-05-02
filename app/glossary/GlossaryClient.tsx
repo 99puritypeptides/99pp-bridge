@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
+import Link from "next/link";
 import { Book, Search, Info } from "lucide-react";
 import { useState } from "react";
 
