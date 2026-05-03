@@ -20,11 +20,6 @@ export const metadata: Metadata = {
   authors: [{ name: '99 Purity Research' }],
   creator: '99 Purity Research',
   publisher: '99 Purity Research',
-  icons: {
-    icon: '/99Logo.png',
-    shortcut: '/99Logo.png',
-    apple: '/99Logo.png',
-  },
   formatDetection: {
     email: false,
     address: false,
