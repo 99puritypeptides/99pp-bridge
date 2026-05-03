@@ -441,16 +441,56 @@ export default async function CompoundPage({ params }: { params: Promise<{ slug:
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: data.name,
-    description: data.description,
+    description: data.description.replace(/<\/?[^>]+(>|$)/g, ""),
+    image: 'https://research.99puritypeptides.com/og-image.png',
+    sku: `99PP-${slug.toUpperCase()}`,
+    mpn: data.cas || `99PP-${slug.toUpperCase()}`,
     brand: {
       '@type': 'Brand',
       name: '99 Purity Research',
     },
     offers: {
       '@type': 'Offer',
+      url: `https://research.99puritypeptides.com/compounds/${slug}`,
       availability: 'https://schema.org/InStock',
       price: '0.00',
       priceCurrency: 'USD',
+      priceValidUntil: '2026-12-31',
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: '0.00',
+          currency: 'USD'
+        },
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'US'
+        },
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 0,
+            maxValue: 1,
+            unitCode: 'DAY'
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 1,
+            maxValue: 4,
+            unitCode: 'DAY'
+          }
+        }
+      },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'US',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnPeriod',
+        merchantReturnDays: 30,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/FreeReturn'
+      }
     },
     aggregateRating: {
       '@type': 'AggregateRating',

@@ -50,6 +50,7 @@ export default function DatabaseClient() {
           "name": "Peptide Synthesis & Molecular Database",
           "description": "Comprehensive technical database of synthetic peptides, including molar mass, sequence mapping, and HPLC purity standards for laboratory research.",
           "url": "https://research.99puritypeptides.com/database",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
           "keywords": ["peptides database", "molecular architecture", "peptide synthesis", "HPLC verification", "research peptides USA"],
           "creator": {
             "@type": "Organization",
@@ -297,47 +298,49 @@ export default function DatabaseClient() {
           </div>
         </Section>
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is the purpose of the Peptide Research Database?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The database provides a comprehensive technical repository for the identification and analysis of research peptides. It features molecular formulas, CAS numbers, and sequence-specific monographs for laboratory use."
+        {products.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What is the purpose of the Peptide Research Database?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The database provides a comprehensive technical repository for the identification and analysis of research peptides. It features molecular formulas, CAS numbers, and sequence-specific monographs for laboratory use."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How accurate are the molecular weights in your database?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Molecular weights are provided to the second decimal place and are verified via High-Resolution Mass Spectrometry (HRMS) to ensure absolute precision for laboratory calibration."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can I compare multiple sequences in the database?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Our database features a 'Sequence Comparison Matrix' that allows researchers to view molecular weights, formulas, and identifiers side-by-side for comparative analysis."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How frequently is the sequence data updated?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Technical specifications and analytical references are updated regularly as new batch data and peer-reviewed literature become available, ensuring researchers have access to the latest identification markers."
+                  }
                 }
-              },
-              {
-                "@type": "Question",
-                "name": "How accurate are the molecular weights in your database?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Molecular weights are provided to the second decimal place and are verified via High-Resolution Mass Spectrometry (HRMS) to ensure absolute precision for laboratory calibration."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can I compare multiple sequences in the database?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. Our database features a 'Sequence Comparison Matrix' that allows researchers to view molecular weights, formulas, and identifiers side-by-side for comparative analysis."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How frequently is the sequence data updated?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Technical specifications and analytical references are updated regularly as new batch data and peer-reviewed literature become available, ensuring researchers have access to the latest identification markers."
-                }
-              }
-            ]
-          }) }}
-        />
+              ]
+            }) }}
+          />
+        )}
 
         <div className="mt-24 p-8 border border-dashed border-border text-center">
           <p className="text-muted text-xs uppercase tracking-[0.2em] mb-8">
@@ -392,6 +395,7 @@ export default function DatabaseClient() {
             "name": "99 Purity Peptides Research Database",
             "description": "Comprehensive clinical repository of 99% purity research peptides. Features molecular formulas, CAS identifiers, and technical monographs for over 20 high-stability sequences.",
             "url": "https://research.99puritypeptides.com/database",
+            "license": "https://creativecommons.org/licenses/by/4.0/",
             "keywords": ["peptides", "HPLC", "Mass Spectrometry", "molecular formulas", "CAS numbers"],
             "creator": {
               "@type": "Organization",

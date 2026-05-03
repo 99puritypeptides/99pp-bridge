@@ -495,21 +495,23 @@ export default function CompoundContent({ data, slug, productSchema, breadcrumbS
           }) }}
         />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": data.faqs ? data.faqs.map((f: any) => ({
-              "@type": "Question",
-              "name": f.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": f.answer
-              }
-            })) : []
-          }) }}
-        />
+        {data.faqs && data.faqs.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": data.faqs.map((f: any) => ({
+                "@type": "Question",
+                "name": f.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": f.answer
+                }
+              }))
+            }) }}
+          />
+        )}
         
         <Section className="mb-20 pt-12 border-t border-border/30">
           <div className="flex items-start gap-4 p-6 border border-border/50 bg-black/50">
