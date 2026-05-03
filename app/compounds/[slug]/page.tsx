@@ -411,22 +411,29 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: data.seoDescription || `Technical peptides research on ${data.name} (${data.fullTitle}). Verified 99 purity research standards for laboratory research peptides in USA. Access HPLC/MS verified ${data.name} online.`,
     keywords: [data.name, 'peptides research', 'research peptides', '99 purity research', 'research peptides in USA', 'HPLC verified', data.cas],
     openGraph: {
-      title: data.seoTitle || `${data.name} | 99 Purity Research Monograph`,
-      description: data.seoDescription || data.description,
-      type: 'article',
+      title: `${data.name} (${data.fullTitle}) | Technical Research Monograph`,
+      description: `Access technical specifications for ${data.name}, including molecular weight (${data.weight}), CAS identifier (${data.cas}), and HPLC purity standards. Verified sequence data for research peptides in USA.`,
       url: `https://research.99puritypeptides.com/compounds/${slug}`,
+      siteName: '99 Purity Research',
       images: [
         {
           url: '/og-image.png',
           width: 1200,
           height: 630,
           alt: `${data.name} Technical Monograph`,
-        }
+        },
       ],
+      locale: 'en_US',
+      type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
+      title: `${data.name} | Peptide Research Data`,
+      description: `Technical analysis and HPLC sequence verification for ${data.name}. 99% purity analytical standards.`,
       images: ['/og-image.png'],
+    },
+    alternates: {
+      canonical: `https://research.99puritypeptides.com/compounds/${slug}`,
     }
   }
 }

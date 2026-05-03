@@ -26,9 +26,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://research.99puritypeptides.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: '99 Purity Research | #1 Authority for Research Peptides in USA',
     description: 'The authoritative database for 99 purity peptides research. 100% HPLC & Mass Spec Verified sequences for analytical laboratory research.',
@@ -81,7 +78,21 @@ export default function RootLayout({
       name: '99 Purity Research',
       url: 'https://research.99puritypeptides.com',
       logo: 'https://research.99puritypeptides.com/99Logo.png',
-      description: '99 Purity Research: The industry standard for analytical grade peptides research and synthesis.',
+      description: '99 Purity Research: The industry standard for analytical grade peptides research and synthesis in the USA.',
+      areaServed: 'US',
+      knowsAbout: [
+        'Peptide Synthesis',
+        'Analytical Chemistry',
+        'Molecular Biology',
+        'HPLC Verification',
+        'Mass Spectrometry'
+      ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'technical support',
+        url: 'https://99puritypeptides.com/contact/',
+        email: 'support@99puritypeptides.com'
+      },
       sameAs: [
         'https://twitter.com/99purityresearch',
         'https://www.linkedin.com/company/99purityresearch',
